@@ -10,62 +10,15 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
   />
 </head>
-<header>
-   Webshop Korio
+<header class="header">
+    <h1 class="headerTitle">Webshop Korio</h1>
 </header>
 <body>
   <div class="cart" aria-label="Shopping cart with 0 items" title="Shopping cart">
     <i class="fas fa-shopping-cart" aria-hidden="true"></i>
     <div class="cart__badge" aria-live="polite" aria-atomic="true" id="cart-count">0</div>
   </div>
- 
   <section class="products" aria-label="Product list">
-    <article class="product" tabindex="0" aria-labelledby="spiderman-title spiderman-subtitle spiderman-price">
-      <img
-        src="img/chacha.jpg"
-        alt="Solo leveling Volume 5"
-        class="product__img"
-        width="250"
-        height="300"
-        loading="lazy"
-      />
-      <h2 class="product__price" id="spiderman-price">€19,90</h2>
-      <h3 class="product__title" id="spiderman-title">Solo leveling Volume 5</h3>
-      <p class="product__rating" aria-label="Five star rating"></p>
-      <button class="product__button" type="button">Add to Cart</button>
-    </article>
- 
-    <article class="product" tabindex="0" aria-labelledby="hulk-title hulk-subtitle hulk-price">
-      <img
-        src= "img/aiku.jpg"
-        alt="Blue lock Volume 16"
-        class="product__img"
-        width="250"
-        height="300"
-        loading="lazy"
-      />
-      <h2 class="product__price" id="ironman-price">€15,50</h2>
-      <h3 class="product__title" id="ironman-title">Blue lock Volume 16<br></h3>
-      <p class="product__rating" aria-label="Five star rating">★★★★★</p>
-      <button class="product__button" type="button">Add to Cart</button>
-     
-    </article>
- 
-    <article class="product product--not-available" tabindex="0" aria-labelledby="batman-title batman-subtitle batman-price" aria-describedby="ironman-notavailable">
-      <div class="product__not-available-label" id="batman-notavailable">not available</div>
-      <img
-        src="img/elu elu.jpg"
-        alt="the Elusive Samurai Volume 1"
-        class="product__img"
-        width="250"
-        height="300"
-        loading="lazy"
-      />
-      <h2 class="product__price" id="item-price">€12,50</h2>
-      <h3 class="product__title" id="item-title"><br>the Elusive Samurai Volume 1</h3>
-      <p class="product__rating" aria-label="Five star rating">★★★★</p>
-      <button class="product__button product__button--disabled" type="button" disabled>Sold out</button>
-    </article>
   </section>
 </body>
 </html>
