@@ -1,18 +1,25 @@
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <title>Webshop Korio</title>
   <link rel="stylesheet" href="style.css">
   <script src="main.js" defer></script>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-  />
+  <script src="server.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <header class="header">
-    <h1 class="headerTitle">Webshop Korio</h1>
+  <img class="header__logo" src="img/ChatGPT Image 27 mei 2025, 12_51_17.png" alt="">
+  
+ <form class="searchbar" onsubmit="handleSearch(event)">
+  <input type="text" name="q" placeholder="Zoek producten..." required>
+  <button type="submit"><i class="fas fa-search"></i></button>
+</form>
+
+  <div class="header__spacer"></div>
 </header>
+
 <body>
   <div class="cart" aria-label="Shopping cart with 0 items" title="Shopping cart">
     <i class="fas fa-shopping-cart" aria-hidden="true"></i>
@@ -21,4 +28,5 @@
   <section class="products" aria-label="Product list">
   </section>
 </body>
+
 </html>

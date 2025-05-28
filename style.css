@@ -16,13 +16,14 @@ font-family: sans-serif;
 font-size: 1rem;
 }
 
+
 .header{
-background: rgb(255, 255, 255);
+background: #fbf9f6;
 display: flex;
 height: 8rem;
-justify-content: center;
+justify-content: space-between;
 align-items: center;
-padding: 5rem;
+position: relative;
 width: 100%;
 }
 
@@ -41,6 +42,39 @@ font-weight: 400;
     font-size: 150%;
     letter-spacing: 0.2rem;
 }
+.header__logo{
+  height: 100%;
+}
+
+.searchbar {
+  flex: 1;
+  margin: 0 1.25rem;
+  max-width: 45rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  padding: 5px 10px;
+  background-color: white;
+}
+
+.searchbar input[type="text"] {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 8px 10px;
+  font-size: 16px;
+  border-radius: 30px;
+  background: transparent;
+}
+
+.searchbar button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
 
 .bigFigure{
     width: 100%;
@@ -65,33 +99,33 @@ cursor: pointer;
       box-sizing: border-box;
     }
 
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 120rem;
+  padding-top: 3rem;
+}
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
-      gap: 2rem;
-      width: 100%;
-      max-width: 120rem;
-      padding-top: 3rem;
-    }
 
- 
-    .product {
-      display: flex;
-      flex-direction: column;
-      background-color: #ffffff;
-      border: 0.2rem solid transparent;
-      padding: 2rem;
-     
-      transition: border-color 0.3s ease;
-      position: relative;
-       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: auto;
-    }
+  @media (min-width: 1024px) {
+  .products {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  }
 
- 
+  .product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border: 0.2rem solid transparent;
+  padding: 2rem;
+  transition: border-color 0.3s ease;
+  min-height: auto;
+  }
+
     .product--not-available {
       background-color: #ffffff;
       color: 1e1d1d;
@@ -200,9 +234,10 @@ cursor: pointer;
 
    
     .cart {
-      position: fixed;
-      top: 2rem;
-      right: 2rem;
+    position: absolute;
+    top: 5%;
+    right: 2rem;
+    transform: translateY(-50%);
       font-size: 4rem;
       color: #000000;
       user-select: none;
@@ -226,7 +261,7 @@ cursor: pointer;
       pointer-events: none;
     }
 
-  
+ 
     .product__remove-button {
       background-color: transparent;
       border: none;
