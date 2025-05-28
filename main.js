@@ -5,12 +5,12 @@ const products_array = [
   ["Naruto vol 28-48", 134.74, "narutoanime.jpg", true],
   ["One Piece vol 1-23", 118.59, "onepiece.jpg", true],
   ["Dragon Ball 1-26", 149.12, "dragonball.jpg", true],
-  ["Jojo's Bizarre Adventure vol 1-17", 115.53 , "21.jpg", true],
-  ["Fullmetal Alchemist vol 1-19", 112.70, "fmab.webp", true],
-  ["Cruncyroll Premium Membership", 69.99, "crunch.webp", false],
-  ["Pokemon Suprise Box", 60.00, "pokemong.jpg", true],
-  ["Yu-Gi-Oh Collectors Box", 38.34, "yugioh.jpg", true],
+  ["Blue Lock jersey - Nagi", 14.99, "nagi.webp", true],
   ["Blue Lock jersey - Kaiser", 15.50, "kaiser22.jpeg", false],
+  ["Blue Lock jersey - Isagi", 14.99, "isagii.webp", false],
+  ["Re:Zero Emilia figure", 35.49, "ememi.webp", true],
+  ["Re:Zero Rem figure", 29.99, "remrem.webp", true],
+  ["Re:Zero Ram figure", 29.99, "ramram.webp", true],
   ["Mystery anime figures", 9.95, "figures.jpg", true],
   ["Anime Stickers", 3.29, "stickers.jpg", true],
   ["My Hero Academia Keychains", 8.99 , "keychain.jpg", true],
@@ -19,7 +19,7 @@ const products_array = [
 ];
 
 let productIndex = 0;
-const productsPerBatch = 6;
+const productsPerBatch = 3;
 const productSection = document.querySelector('.products');
 
 function loadMoreProducts() {
