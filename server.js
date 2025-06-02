@@ -2,18 +2,15 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-// Zet de juiste poort
 const PORT = 3000;
 
-// Serveer alle statische bestanden uit de huidige map
 app.use(express.static(__dirname));
 
-// Standaard route voor "/"
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Zoekroute
+
 app.get('/zoeken', (req, res) => {
   const query = req.query.q?.toLowerCase() || '';
 
@@ -55,7 +52,7 @@ app.get('/zoeken', (req, res) => {
   res.send(html);
 });
 
-// Start de server
+
 app.listen(PORT, () => {
   console.log(`Server draait op http://localhost:${PORT}`);
 });

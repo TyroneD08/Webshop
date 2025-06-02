@@ -3,17 +3,30 @@ const products_array = [
   ["My Hero Academia vol 1-20", 124.34, "myheroacademia.jpg", true],
   ["Bleach vol 1-21", 89.99, "bleach.jpg", true],
   ["Naruto vol 28-48", 134.74, "narutoanime.jpg", true],
-  ["One Piece vol 1-23", 118.59, "onepiece.jpg", true],
+  ["Tokyo Ghoul vol 1-16", 143.59, "tokyoghoul.jpg", true],
   ["Dragon Ball 1-26", 149.12, "dragonball.jpg", true],
-  ["Blue Lock jersey - Nagi", 14.99, "nagi.webp", true],
+  ["Bakuman Complete Box Set vol 1-22", 160.00, "bakuman.jpg", true],
+  ["One Piece, Dressrosa to Reverie: Vol 71-90", 228.98, "opopop.webp", true],
+  ["Vampire Knight Complete Box Set vol 1-19", 157.36, "vampire.jpg", false],
+  ["Naruto Shipudden Bookmarks 9pcs", 1.70, "sakura.webp", true],
+  ["Demon Slayer Bookmarks 9pcs", 1.45, "tanj.jpg", true],
+  ["Jujutsu Kaisen Bookmarks 9pcs", 1.50, "jjkk.jpg", false],
+  ["Blue Lock jersey - Nagi Seishiro", 14.99, "nagi.webp", true],
+  ["Blue Lock jersey - Yoichi Isagi", 14.99, "isagii.webp", true],
   ["Blue Lock jersey - Kaiser", 15.50, "kaiser22.jpeg", false],
-  ["Blue Lock jersey - Isagi", 14.99, "isagii.webp", false],
-  ["Re:Zero Emilia figure", 35.49, "ememi.webp", true],
-  ["Re:Zero Rem figure", 29.99, "remrem.webp", true],
-  ["Re:Zero Ram figure", 29.99, "ramram.webp", true],
-  ["Mystery anime figures", 9.95, "figures.jpg", true],
-  ["Anime Stickers", 3.29, "stickers.jpg", true],
+  ["Blue Lock figure - Nagi Seishiro", 4.79, "nagii.jpg", true],
+  ["Blue Lock figure - Meguru Bkl achira", 4.79, "bachi.webp", true],
+  ["Blue Lock figure - Rin & Sae", 9.25, "rinn.webp", true],
+  ["Mystery anime figures 5pcs", 9.95, "figures.jpg", true],
+  ["Anime Stickers - 50pcs Random", 3.29, "stickers.jpg", true],
   ["My Hero Academia Keychains", 8.99 , "keychain.jpg", true],
+  ["Konosuba Nendroid - Aqua Goddess of Water", 49.95, "aqua.webp", true],
+  ["Konosuba Nendroid - Megumin", 49.95, "megumin.jpg", true],
+  ["Death Note Nendroid - L", 75.50, "L.jpg", false],
+  ["Lego Katana with Scabbard & Stand - Zoro", 68.99, "zoro.jpg", false],
+  ["Lego Katana with Scabbard & Stand - Yamato", 70.00, "redred.jpg", true],
+  ["Lego Katana with Scabbard & Stand - Zenitsu", 58.50, "zeni.jpg", true]
+  
   
   
 ];
@@ -107,16 +120,64 @@ updateCartCount();
 loadMoreProducts();
 observer.observe(sentinel);
 
+const priceFilter = document.getElementById('price-filter');
+priceFilter.addEventListener('change', handlePriceFilter);
+
+function handlePriceFilter() {
+  const selected = priceFilter.value;
+  productSection.innerHTML = '';
+  productIndex = 0;
+
+  let filtered;
+  if (selected === 'all') {
+    filtered = products_array;
+  } else if (selected === '100+') {
+    filtered = products_array.filter(([_, price]) => price >= 100);
+  } else {
+    const limit = parseFloat(selected);
+    filtered = products_array.filter(([_, price]) => price <= limit);
+  }
+
+  filtered.forEach(([name, price, imgSrc, available]) => {
+    const article = document.createElement('article');
+    article.classList.add('product');
+    if (!available) article.classList.add('product--not-available');
+
+    article.innerHTML = `
+      <img src="img/${imgSrc}" alt="${name}" class="product__img" width="250" height="300" loading="lazy" />
+      <h2 class="product__price">€${price.toFixed(2)}</h2>
+      <h3 class="product__title">${name}</h3>
+      <p class="product__rating">★★★★</p>
+      ${
+        available
+          ? `<button class="product__button" type="button">Add to Cart</button>
+             <button class="remove__button" type="button">Remove</button>`
+          : `<button class="product__button product__button--disabled" type="button" disabled>Sold out</button>`
+      }
+    `;
+
+    const addButton = article.querySelector('.product__button:not(.product__button--disabled)');
+    if (addButton) addButton.addEventListener('click', onAddToCartClick);
+
+    const removeButton = article.querySelector('.remove__button');
+    if (removeButton) removeButton.addEventListener('click', onRemoveFromCartClick);
+
+    productSection.appendChild(article);
+  });
+}
+
+
 function handleSearch(event) {
   event.preventDefault();
   const query = event.target.q.value.trim();
 
-  productSection.innerHTML = ''; // Leeg eerst alles
+
+  productSection.innerHTML = '';
   productIndex = 0;
 
-  // Als het zoekveld leeg is, toon dan alles opnieuw
+
   if (query === '') {
-    loadMoreProducts(); // of eventueel observer.observe(sentinel);
+    loadMoreProducts();
     return;
   }
 

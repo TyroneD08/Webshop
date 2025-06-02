@@ -90,7 +90,7 @@ cursor: pointer;
  body {
       margin: 0;
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-      background: linear-gradient(to left, #f7ffd9, #f5d8a2);
+      background: linear-gradient(to left, #eff8ce, #f5d8a2);
       color: #1e1d1d;
       min-height: 100vh;
       display: flex;
@@ -297,3 +297,49 @@ cursor: pointer;
         text-align: center;
       }
     }
+
+    .main-container {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.filter-sidebar {
+  width: 200px;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  font-size: 1.4rem;
+}
+
+.filter-sidebar h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.filter {
+  background-color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  align-self: flex-start;
+}
+
+.filter__label {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
+.filter__select {
+  font-size: 1.6rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+}

@@ -10,8 +10,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <header class="header">
-  <img class="header__logo" src="img/ChatGPT Image 27 mei 2025, 12_51_17.png" alt="">
+  <img class="header__logo" src="img/ChatGPT Image 27 mei 2025, 12_51_17.png" alt="Company Logo" onclick="location.reload()" style="cursor: pointer;">
+
   
+  <div><h1>Manga's, Merch & much more!</h1></div>
  <form class="searchbar" onsubmit="handleSearch(event)">
   <input type="text" name="q" placeholder="Search..." required>
   <button type="submit"><i class="fas fa-search"></i></button>
@@ -25,8 +27,34 @@
     <i class="fas fa-shopping-cart" aria-hidden="true"></i>
     <div class="cart__badge" aria-live="polite" aria-atomic="true" id="cart-count">0</div>
   </div>
-  <section class="products" aria-label="Product list">
-  </section>
+ <div class="main-container">
+  <aside class="filter">
+  <label for="price-filter" class="filter__label">Filter by Price:</label>
+  <select id="price-filter" class="filter__select">
+    <option value="all">All</option>
+    <option value="2.5">Under €2.50</option>
+    <option value="5">Under €5</option>
+    <option value="10">Under €10</option>
+    <option value="15">Under €15</option>
+    <option value="25">Under €25</option>
+    <option value="50">Under €50</option>
+    <option value="75">Under €75</option>
+    <option value="100">Under €100</option>
+    <option value="100+">€100+</option>
+  </select>
+</aside>
+
+  
+
+  <section class="products" aria-label="Product list"></section>
+</div>
+
 </body>
+
+<script>
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+</script>
 
 </html>
