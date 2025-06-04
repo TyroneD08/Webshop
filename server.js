@@ -15,6 +15,12 @@ app.get('/zoeken', (req, res) => {
   const query = req.query.q?.toLowerCase() || '';
 
   const products_array = [
+    // { title: "Demon Slayer vol1-23",
+    //   price: 133.44,
+    //   img: "demonslayer.jpg",
+    //   inVooraad: true,
+    //   description: "Box of DS manga volume 1 through 23"
+    // }
     ["Demon Slayer vol 1-23", 133.69, "demonslayer.jpg", true],
     ["My Hero Academia vol 1-20", 124.34, "myheroacademia.jpg", true],
     ["Bleach vol 1-21", 89.99, "bleach.jpg", true],
@@ -42,7 +48,7 @@ app.get('/zoeken', (req, res) => {
   } else {
     results.forEach(p => {
       html += `<div>
-        <h2>${p[0]}</h2>
+        <h2>${p.title}</h2>
         <p>€${p[1].toFixed(2)}</p>
         <img src="${p[2]}" width="100">
       </div>`;
@@ -56,3 +62,5 @@ app.get('/zoeken', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server draait op http://localhost:${PORT}`);
 });
+
+
